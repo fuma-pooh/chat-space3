@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.a {
+  color: white;
+}
+
+.chat-SideBar {
+  width: 300px;
+  height: 100vh;
+  
+
+  &__LeftHeader {
+    background-color:#253141;
+    height: 100px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+
+
+    &__List {
+      height: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      &__UserName {
+        font-weight: bold;
+        color: white;
+      }
+
+      &__IconList {
+        display: flex;
+
+        &__Pen {
+          color: white;
+          text-decoration: none;
+        }
+
+        &__Sharin {
+          color: white;
+          text-decoration: none;
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+
+
+  &__GroupList {
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    padding: 20px; 
+    overflow: scroll;
+
+    &__Group {
+      height: 90px;
+      font-size: 15px;
+      color: white;
+
+      &__Name {
+        text-decoration: none;
+      }
+
+      &__Message {
+        font-size: 11px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
