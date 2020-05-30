@@ -72,6 +72,7 @@
         width: 100%;
         background-color: #fff;
         position: relative;
+        display: flex;
 
         &__InputContent {
           border: none;
@@ -87,9 +88,15 @@
           &__FormIcon {
             line-height: 50px;
             font-size: 25px;
+            // position: absolute;
           }
         }
       }
+
+.none {
+   display: none;
+  //  noneクラスを設けることで、labelが発動します
+}
 
       &__Submit {
         background-color: #38AEF0;
@@ -98,10 +105,17 @@
         font-size: 16px;
         height: 50px;
         margin-left: 15px;
-        padding: 0 30px;
+        padding-left: 9px;
+        padding-right: 15px;
         padding-top: 13px;
+        text-decoration: none;
         font-family: inherit;
         font-weight: inherit;
+
+        &__Send {
+          // color: white;
+          text-decoration: none;
+        }
       }
     }
   }
