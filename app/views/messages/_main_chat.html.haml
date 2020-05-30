@@ -14,8 +14,12 @@
   .chat-main__Footer
     .chat-main__Footer__Form
       .chat-main__Footer__Form__Contents
-        .chat-main__Footer__Form__Contents__InputContent
+        %input.chat-main__Footer__Form__Contents__InputContent{:placeholder => "type a message"}
         .chat-main__Footer__Form__Contents__InputImage
           .chat-main__Footer__Form__Contents__InputImage__FormIcon
+            %label{class: "Contents__InputImage"}
+              = icon('fa','image')
+              %input.none{type: "file"}
       .chat-main__Footer__Form__Submit
-        Send
+        = link_to "#",class:"chat-main__Footer__Form__Submit" do
+          Send
