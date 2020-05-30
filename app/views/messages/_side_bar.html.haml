@@ -1,16 +1,19 @@
 .chat-SideBar
   .chat-SideBar__LeftHeader
     .chat-SideBar__LeftHeader__List
-      .chat-SideBar__LeftHeader__List__UserName
-        fuma
-      .chat-SideBar__LeftHeader__List__IconList
-        .chat-SideBar__LeftHeader__List__IconList__Pen
-          = icon('fa','edit')
-        .chat-SideBar__LeftHeader__List__IconList__Sharin
-          = icon('fa','cog')
+      %h3.chat-SideBar__LeftHeader__List__UserName
+        = current_user.name
+      %ul.chat-SideBar__LeftHeader__List__IconList
+        %li.chat-SideBar__LeftHeader__List__IconList__Pen
+          = link_to '#' do
+            = icon('fa', 'edit')
+        %li.chat-SideBar__LeftHeader__List__IconList__Sharin
+          = link_to edit_user_path(current_user) do
+            = icon('fa','cog')
   .chat-SideBar__GroupList
     .chat-SideBar__GroupList__Group
-      group
-      .chat-SideBar__GroupList__Group__Name
-        fuma
-      .chat-SideBar__GroupList__Group__Message
+      = link_to '#' do
+        .chat-SideBar__GroupList__Group__Name
+          グループ名
+        .chat-SideBar__GroupList__Group__Message
+          最新のメッセージ
