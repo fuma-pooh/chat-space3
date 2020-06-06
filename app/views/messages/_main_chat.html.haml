@@ -2,24 +2,20 @@
   .chat-main__RightHeader
     .chat-main__RightHeader__Group
       .chat-main__RightHeader__Group__GroupName
-        group
+        = @group.name
       .chat-main__RightHeader__Group__MemberList
-        Member　:
-        .chat-main__RightHeader__Group__MemberList__Member
-          　fuma
-        -# .chat-main__RightHeader__Group__MemberList
-    .chat-main__RightHeader__EditButton
-      Edit
+        Member :
+        - @group.users.each do |user|
+          = user.name
+    = link_to 'Edit', edit_group_path(@group), class: 'chat-main__RightHeader__EditButton'
+
   .chat-main__MessageField
+    = render @messages
   .chat-main__Footer
-    .chat-main__Footer__Form
+    = form_with model: [@group, @message], html: {class: "chat-main__Footer__Form"}, local: true do |f|
       .chat-main__Footer__Form__Contents
-        %input.chat-main__Footer__Form__Contents__InputContent{:placeholder => "type a message"}
-        .chat-main__Footer__Form__Contents__InputImage
-          .chat-main__Footer__Form__Contents__InputImage__FormIcon
-            %label{class: "Contents__InputImage"}
-              = icon('fa','image')
-              %input.none{type: "file"}
-      .chat-main__Footer__Form__Submit
-        = link_to "#",class:"chat-main__Footer__Form__Submit" do
-          Send
+        = f.text_field :content, class: 'chat-main__Footer__Form__Contents__InputContent', placeholder: 'type a message'
+        = f.label :image, class: 'chat-main__Footer__Form__Contents__InputImage' do
+          = icon('far', 'image', class: 'chat-main__Footer__Form__Contents__InputImage__FormIcon')
+          = f.file_field :image, class: 'chat-main__Footer__Form__Contents__InputImage__Hidden'
+      = f.submit 'Send', class: 'chat-main__Footer__Form__Submit'
