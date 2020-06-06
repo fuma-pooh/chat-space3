@@ -1,19 +1,19 @@
 .chat-SideBar
   .chat-SideBar__LeftHeader
     .chat-SideBar__LeftHeader__List
-      %h3.chat-SideBar__LeftHeader__List__UserName
+      .chat-SideBar__LeftHeader__List__UserName
         = current_user.name
-      %ul.chat-SideBar__LeftHeader__List__IconList
-        %li.chat-SideBar__LeftHeader__List__IconList__Pen
-          = link_to '#' do
-            = icon('fa', 'edit')
-        %li.chat-SideBar__LeftHeader__List__IconList__Sharin
-          = link_to edit_user_path(current_user) do
-            = icon('fa','cog')
+      .chat-SideBar__LeftHeader__List__IconList
+        = link_to = link_to new_group_path,class:'chat-SideBar__LeftHeader__List__IconList__Pen' do
+          = icon('fa', 'edit')
+        = link_to edit_user_path(current_user),class:"chat-SideBar__LeftHeader__List__IconList__Sharin" do
+          = icon('fa','cog')
+
   .chat-SideBar__GroupList
-    .chat-SideBar__GroupList__Group
-      = link_to '#' do
-        .chat-SideBar__GroupList__Group__Name
-          グループ名
-        .chat-SideBar__GroupList__Group__Message
-          最新のメッセージ
+    - current_user.groups.each do |group|
+      .chat-SideBar__GroupList__Group
+        = link_to group_messages_path(group) do
+          .chat-SideBar__GroupList__Group__Name
+            = group.name
+          .chat-SideBar__GroupList__Group__Message
+            = group.show_last_message
