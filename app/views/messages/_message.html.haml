@@ -4,6 +4,7 @@
       = message.user.name
     .chat-main__MessageField__MessageBox__MessageInfo__Date
       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      
   .chat-main__MessageField__MessageBox__Message
     - if message.content.present?
       .chat-main__MessageField__MessageBox__Message__Content

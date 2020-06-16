@@ -11,6 +11,10 @@
 
   .chat-main__MessageField
     = render @messages
+    -# render @messagesという記述で部分テンプレートを呼び出しています。
+    -# これは、以下のコードを省略した書き方
+    -# インスタンス変数の名前を単数形にしたものと、
+    -# 部分テンプレートの名前が同じならこのような省略をすることができます
   .chat-main__Footer
     = form_with model: [@group, @message], html: {class: "chat-main__Footer__Form"}, local: true do |f|
       .chat-main__Footer__Form__Contents
