@@ -20,6 +20,9 @@ default: &default
 development:
   <<: *default
   database: chat_space3_development
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -50,5 +53,6 @@ test:
 production:
   <<: *default
   database: chat_space3_production
-  username: chat_space3
-  password: <%= ENV['CHAT_SPACE3_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
